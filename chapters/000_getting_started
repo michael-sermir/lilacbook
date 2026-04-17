@@ -1,0 +1,61 @@
+lilac is an extremely powerful programming language tailored specifically for
+the lavender operating system. it provides low-level system control with minimal
+handholding like c, while also integrating tightly with the apis and systems of
+lavender. its syntax is extremely easy to understand, and the full suite of
+tools that come with its command-line management interface (built into
+lavender!) provide a rich ecosystem that will rarely leave you wanting for extra
+features.
+
+this starting tutorial will teach you both the basics and the advanced portions
+of the language, and then run through some shorter tutorials for how to build
+things like graphical applications and even system modules. this tutorial is
+available both online at `https://sermir.online/learning/lilac` and offline in
+lavender's manual library.
+
+before we begin this tutorial, we should set up the development environment. for
+this, you are going to need three lavender utilities; `new`, `enter`, and
+`lilac`. the usage of the `new` command is easy to understand if you've used
+lavender for any stretch of time, we're going to use it to create a lilac
+project. run the following code in the terminal (you can bring up a new one via
+[<key> meta+t]):.
+
+[<code:terminal>
+new lilac project called "hello_lilac"
+enter $code
+]
+
+that [<ref> enter $code] command just changes the working directory to the
+system-wide code directory, which is where the new lilac project will have been
+created. the project will look like this if you [<ref> list here]:
+
+[<code:directory>
+.
+|- sources
+|--|- entry
+|--|- build
+|- project
+|- copying
+|- roadmap
+]
+
+the [<ref> roadmap] file just contains a single roadmap item in standard lilac
+todo format; "implement project! :)". this is here for your personal usage, but
+it isn't a required file, and therefore can be deleted if you wish. the
+[<ref> project] file just contains the name of your project right now, but is
+the "readme" document for this project. this can contain whatever you wish. the
+[<ref> copying] file contains the license for this project, by default the
+[<link:"https://www.gnu.org/licenses/gpl-3.0.txt"> gplv3]. this can be
+changed to whatever you wish.
+
+the [<ref> sources] directory will contain sources for your lilac project. by
+default, the entry point (the function to be executed first in your program) and
+the build script (the file the compiler will use to customize the build process
+for your specific project) are the only things in this directory. the build
+script must be named as it is in this folder ([<ref> build.lilac]), but the
+entry point can be named whatever you'd like, so long as it's referenced as the
+same name in the build script.
+
+you now have a lilac project! that's the full lilac project management
+experience, minus source control which we will get into in a much later chapter.
+next, we're going to go over the basics of the [<ref> iris] text editor and
+actually get you writing some lilac code.

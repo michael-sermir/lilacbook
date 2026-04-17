@@ -1,0 +1,109 @@
+iris is a terminal-based, vim-like text editor and lilac ide. it provides syntax
+highlighting, code diagnostics, dependency management, source code integration,
+and a whole lot more that won't matter to you until much later in your lilac
+journey. for now, you need iris for one reason: to edit lilac code. to this end,
+you really don't need to know much. just some basic key combinations;
+
+[<code:list>
+w: up line
+s: down line
+a: left character
+d: right character
+
+q: word backwards
+r: word forwards
+
+e: enter edit mode
+t: enter file manager (tree).
+b: enter block mode
+esc: return to normal mode
+]
+
+these controls may seem weird to you now, but i promise you'll get used to them.
+eventually. anyway, you need to start the iris file explorer to navigate your
+project. simply type [<ref> execute iris] into your terminal and hit enter. the
+file manager should immediately appear, which means you will see that file tree
+that i showed in the last chapter. if you do not, make sure you created your
+project and entered iris correctly, and that your lavender install is not
+somehow nonstandard.
+
+you can navigate the file explorer by moving the cursor up and down (via the w/s
+keys) and hitting "enter" to select a list entry. if you select a file, you will
+enter the buffer edit screen. if you select a folder, you will simply [<ref>
+enter] into that directory. select [<ref> sources] and hit enter. then, select
+the [<ref> entry.lilac] file. this is the entry point of your program! you
+should see the following text in the buffer edit screen;
+
+[<code:lilac>
+import from std output.
+
+entry is function; returns u32 =
+{
+    std/output/string; "hi world :)".
+    return success.
+}
+]
+
+while this syntax can be a teensy bit confusing at first, it's really quite
+intuitive if you can read english. first, the import statement. this is
+basically the [<ref> (#,%)include] statement in a c or nasm program. we
+import the standard output module, which is a part of the [<ref> std] system
+module that is integrated into lavender. you don't need to know what a "system
+module" is right now, but if you develop things and have ever used an
+apple-controlled os, this is one of the libraries held in the dyld cache. it
+provides us with some basic routines to quickly and easily output strings,
+integers (in binary, hexadecimal, and decimal formats), decimals, and a million
+different other things.
+
+next is the [<ref> entry is function] line. this just defines the identifier
+[<ref> entry] as a function with no parameters that returns a 32-bit unsigned
+integer. this is the default signature for the entry point function for most
+applications on lavender, and the os will not pass any command-line arguments to
+your process, meaning you cannot go dowsing for them in assembly like you can on
+linux. we will get more into customizing the entrypoint in a couple of chapters
+from now.
+
+next is the scope of the function. everything contained between this brace and
+the next brace is considered to be code belonging to the [<ref> entry] function.
+this is a simple concept to understand if you've come from literally any other
+programming language.
+
+the next line contains a call to a function within the [<ref> std/output]
+namespace called [<ref> string]. this function, whose signature and
+documentation you will see if you hit [<key> i] in iris' normal mode, takes in a
+string argument. this string will be printed to the output stream assigned to
+your process, usually a running terminal.
+
+the next statement, [<ref> return success], does exactly what it says it does.
+it returns success. success is an integral value functionally equivalent to the
+"true" boolean value, though it directly converts to the number 1 in decimal. we
+will talk more about return values and error handling in the next couple of
+chapters.
+
+let's see if this program works! enter normal mode if you are in another mode
+and then press [<key> c]. the compilation menu will open, and you should see the
+following interface.
+
+[<code:list>
+compile current project.
+see project compilation settings.
+see project information.
+]
+
+select the "compile current project" option and hit enter. you should be treated
+to a colorized output window of the compilation process. if this is the first
+time you're using lavender or the lilac compiler, it may take a couple of
+moments to get set up, please be patient. it should compile with a full success,
+and produced should be a [<ref> product] directory with a file called
+"hello_lilac" contained within it.
+
+you can run this file by exiting pressing [<key> meta+esc] to exit iris, then
+entering "execute product/hello_lilac". the output should be the string "hi
+world :)" and then a report of a successful execution. note that there is a way
+to execute binaries from iris, but it's meant to be used as a debugging tool and
+thus the output is a little harder to navigate. we will learn how to utilize
+this option later (notice all my little knowledge keys jingling in front of your
+face? i have to keep you engaged somehow ;]).
+
+and that's basically all of the skills you need to create and change a couple of
+small lilac projects, like we will in these early chapters. you're going great!
