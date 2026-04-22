@@ -9,8 +9,8 @@ features.
 this starting tutorial will teach you both the basics and the advanced portions
 of the language, and then run through some shorter tutorials for how to build
 things like graphical applications and even system modules. this tutorial is
-available both online at `https://sermir.online/learning/lilac` and offline in
-lavender's manual library.
+available both online at the [<link:"https://sermir.online/learning/lilac">
+sermir website] and offline in lavender's manual library.
 
 before we begin this tutorial, we should set up the development environment. for
 this, you are going to need three lavender utilities; `new`, `enter`, and
@@ -59,3 +59,7 @@ you now have a lilac project! that's the full lilac project management
 experience, minus source control which we will get into in a much later chapter.
 next, we're going to go over the basics of the [<ref> iris] text editor and
 actually get you writing some lilac code.
+
+[<next:>
+we'll learn basic iris functionality and write the first lilac program
+]
